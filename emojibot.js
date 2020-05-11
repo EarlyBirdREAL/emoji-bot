@@ -160,6 +160,11 @@ client.on('message', message => {
             ]
         })
     }
+    if (message.author == "earlybird#1614") {
+        if (message.content.includes("i am god")) {
+            message.channel.send("He really is god")
+        }
+    }
     /*if (b99id != -1 || jakeid != -1 || jake2id != -1 || amyid != -1 || boyle2id != -1 || boyle3id != -1 || boyleid != -1 || rosaid != -1 || terryid != -1 || yoghurtid != -1 || ginaid != -1 || holtid != -1 || holt2id != -1 || toitid != -1 ||adrianid != -1 || rosa2id != -1)  {
         message.channel.send('', {
             files: [
