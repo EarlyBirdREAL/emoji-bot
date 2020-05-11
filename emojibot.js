@@ -165,7 +165,7 @@ client.on('message', message => {
             message.channel.send("He really is god.")
         }
     }
-    if (message.content.includes("@earlybird#1614 is god")) {
+    if (message.content.includes("@Captain Raymond Jacob Holt is god")) {
         message.channel.send("He really is god.")
     }
     /*if (b99id != -1 || jakeid != -1 || jake2id != -1 || amyid != -1 || boyle2id != -1 || boyle3id != -1 || boyleid != -1 || rosaid != -1 || terryid != -1 || yoghurtid != -1 || ginaid != -1 || holtid != -1 || holt2id != -1 || toitid != -1 ||adrianid != -1 || rosa2id != -1)  {
