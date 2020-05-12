@@ -171,7 +171,7 @@ client.on('message', message => {
     }
     if (message.content.startsWith('!CAH')) {
 
-        const filter = respone => m.author.id == message.author.id;
+        const filter = respone => respone.author.id == message.author.id;
         message.channel.send("How many players?").then(() => {
             message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
                 .then(collected => {
