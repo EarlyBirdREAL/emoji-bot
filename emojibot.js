@@ -173,17 +173,17 @@ client.on('message', message => {
         message.channel.send("He really is god.")
     }
     if (message.content.startsWith('!CAH')) {
+        const embed = new Discord.MessageEmbed()
+            .setColor('#0099ff')
+            .setTitle('Cards Against Humanity B99 Edition')
+            .setDescription(`${collected.size} players joined this game`)
+            .setFooter('Copyright Vincent Evers aka God')
+            .setTimestamp()
 
         const filter = respone => respone.author.id == message.author.id;
         message.channel.send("How many players?").then(() => {
             message.channel.awaitMessages(filter, { max: 6, time: 30000, errors: ['time'] })
                 .then(collected => {
-                    const embed = new Discord.MessageEmbed()
-                        .setColor('#0099ff')
-                        .setTitle('Cards Against Humanity B99 Edition')
-                        .setDescription(`${collected.size} players joined this game`)
-                        .setFooter('Copyright Vincent Evers aka God')
-                        .setTimestamp()
                     message.channel.send(embed)
                 })
                 .catch(collected => {
