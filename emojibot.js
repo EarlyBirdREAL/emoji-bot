@@ -166,7 +166,7 @@ client.on('message', message => {
             message.channel.send("He really is god.")
         }
     }
-    if (message.content.includes("<@249245244674146305> is god")) {
+    if (message.content.includes("<@!249245244674146305> is god")) {
         message.channel.send("You're absolutely right!")
     }
     if (message.content.includes("@Captain Raymond Jacob Holt is god")) {
