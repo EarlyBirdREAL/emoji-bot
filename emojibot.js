@@ -175,7 +175,7 @@ client.on('message', message => {
         message.channel.send("How many players?").then(() => {
             message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
                 .then(collected => {
-                    message.channel.send(`${collected} number of players selected`)
+                    message.channel.send(`${collected.message} number of players selected`)
                 })
                 .catch(collected => {
                     message.channel.send('Please restart')
