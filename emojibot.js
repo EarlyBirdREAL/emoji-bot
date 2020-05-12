@@ -173,9 +173,9 @@ client.on('message', message => {
 
         const filter = respone => respone.author.id == message.author.id;
         message.channel.send("How many players?").then(() => {
-            message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
+            message.channel.awaitMessages(filter, { max: 6, time: 30000, errors: ['time'] })
                 .then(collected => {
-                    message.channel.send(`${collected.message.content} number of players selected`)
+                    message.channel.send(`${collected.size} number of players joined`)
                 })
                 .catch(collected => {
                     message.channel.send('Please restart')
