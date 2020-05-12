@@ -178,7 +178,13 @@ client.on('message', message => {
         message.channel.send("How many players?").then(() => {
             message.channel.awaitMessages(filter, { max: 6, time: 30000, errors: ['time'] })
                 .then(collected => {
-                    message.channel.send(`${collected.size} number of players joined`)
+                    const embed = new Discord.MessageEmbed()
+                        .setColor('#0099ff')
+                        .setTitle('Cards Against Humanity B99 Edition')
+                        .setDescription(`${collected.size} players joined this game`)
+                        .setFooter('Copyright Vincent Evers aka God')
+                        .setTimestamp()
+                    message.channel.send(embed)
                 })
                 .catch(collected => {
                     message.channel.send('Please restart')
