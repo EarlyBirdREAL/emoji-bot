@@ -169,22 +169,19 @@ client.on('message', message => {
     if (message.content.includes("<@!249245244674146305> is god")) {
         message.channel.send(`You're absolutely right ${message.author}!`)
     }
+    if (message.content.includes("<@!426214039241359372> is god")) {
+        message.channel.send(`You're absolutely right ${message.author}!`)
+    }
     if (message.content.includes("@Captain Raymond Jacob Holt is god")) {
         message.channel.send("He really is god.")
     }
     if (message.content.startsWith('!CAH')) {
-        const embed = new Discord.MessageEmbed()
-            .setColor('#0099ff')
-            .setTitle('Cards Against Humanity B99 Edition')
-            .setDescription(`${collected.size} players joined this game`)
-            .setFooter('Copyright Vincent Evers aka God')
-            .setTimestamp()
 
         const filter = respone => respone.author.id == message.author.id;
         message.channel.send("How many players?").then(() => {
             message.channel.awaitMessages(filter, { max: 6, time: 30000, errors: ['time'] })
                 .then(collected => {
-                    message.channel.send(embed)
+                    message.channel.send(`${collected.size} number of players joined`)
                 })
                 .catch(collected => {
                     message.channel.send('Please restart')
