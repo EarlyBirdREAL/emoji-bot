@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const MessageEmbed = require('discord.js');
+
 
 client.once('ready', () => {
     console.log('Ready!');
@@ -170,11 +170,7 @@ client.on('message', message => {
         message.channel.send("He really is god.")
     }
     if (message.content.startsWith('!CAH')) {
-        const embedcah = new MessageEmbed()
-            .setTitle('Cards Against Humanity test')
-            .setColor('Green')
-            .setDescription('Please say the number of players for this game of CAH');
-        message.channel.send(embedcah);
+        message.channel.send("How many players?")
     }
     /*if (b99id != -1 || jakeid != -1 || jake2id != -1 || amyid != -1 || boyle2id != -1 || boyle3id != -1 || boyleid != -1 || rosaid != -1 || terryid != -1 || yoghurtid != -1 || ginaid != -1 || holtid != -1 || holt2id != -1 || toitid != -1 ||adrianid != -1 || rosa2id != -1)  {
         message.channel.send('', {
