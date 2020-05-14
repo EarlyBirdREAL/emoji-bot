@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-
+var CAH
 
 client.once('ready', () => {
     console.log('Ready!');
@@ -192,6 +192,7 @@ client.on('message', message => {
             .then(function(message) {
                 message.react("👍")
                 message.react("👎")
+                CAH = message
             }).catch(function() {
                 //Something
             });
@@ -200,10 +201,9 @@ client.on('message', message => {
         // Reacts so the user only have to click the emojis
 
         // First argument is a filter function
-        message.awaitReactions((reaction, user) => user.id == message.author.id && (reaction.emoji.name == '👍' || reaction.emoji.name == '👎'), { max: 1, time: 30000 }).then(collected => {
+        CAH.awaitReactions((reaction, user) => user.id == message.author.id && (reaction.emoji.name == '👍' || reaction.emoji.name == '👎'), { max: 1, time: 30000 }).then(collected => {
             if (collected.first().emoji.name == '👍') {
                 message.reply('Shutting down...');
-                client.destroy();
             } else
                 message.reply('Operation canceled.');
         }).catch(() => {
