@@ -188,23 +188,29 @@ client.on('message', message => {
                 })
         }) */
         message.reply('The bot will now shut down.\n' +
-            'Confirm with a thumb up or deny with a thumb down.');
+                'Confirm with a thumb up or deny with a thumb down.')
+            .then(function(message) {
+                message.react("👍")
+                message.react("👎")
+                message.awaitReactions((reaction, user) => user.id == message.author.id && (reaction.emoji.name == '👍' || reaction.emoji.name == '👎'), { max: 1, time: 30000 }).then(collected => {
+                    if (collected.first().emoji.name == '👍') {
+                        message.reply('Shutting down...');
+                        client.destroy();
+                    } else
+                        message.reply('Operation canceled.');
+                }).catch(() => {
+                    message.reply('No reaction after 30 seconds, operation canceled');
+                });
+            }).catch(function() {
+                //Something
+                message.reply("hey so that didn't work")
+            });
+
 
         // Reacts so the user only have to click the emojis
-        message.react('👍').then(r => {
-            message.react('👎');
-        });
 
         // First argument is a filter function
-        message.awaitReactions((reaction, user) => user.id == message.author.id && (reaction.emoji.name == '👍' || reaction.emoji.name == '👎'), { max: 1, time: 30000 }).then(collected => {
-            if (collected.first().emoji.name == '👍') {
-                message.reply('Shutting down...');
-                client.destroy();
-            } else
-                message.reply('Operation canceled.');
-        }).catch(() => {
-            message.reply('No reaction after 30 seconds, operation canceled');
-        });
+
     }
     /*if (b99id != -1 || jakeid != -1 || jake2id != -1 || amyid != -1 || boyle2id != -1 || boyle3id != -1 || boyleid != -1 || rosaid != -1 || terryid != -1 || yoghurtid != -1 || ginaid != -1 || holtid != -1 || holt2id != -1 || toitid != -1 ||adrianid != -1 || rosa2id != -1)  {
         message.channel.send('', {
