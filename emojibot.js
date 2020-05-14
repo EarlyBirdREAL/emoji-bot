@@ -192,8 +192,8 @@ client.on('message', message => {
             .then(function(message) {
                 message.react("👍")
                 message.react("👎")
-            }).then(function(message) {
-                message.awaitReactions((reaction, user) => user.id == message.author.id && (reaction.emoji.name == '👍' || reaction.emoji.name == '👎'), { max: 1, time: 30000 }).then(collected => {
+            }).then(function(messagee) {
+                messagee.awaitReactions((reaction, user) => user.id == message.author.id && (reaction.emoji.name == '👍' || reaction.emoji.name == '👎'), { max: 1, time: 30000 }).then(collected => {
                     if (collected.first().emoji.name == '👍') {
                         message.reply('Shutting down...');
                         client.destroy();
