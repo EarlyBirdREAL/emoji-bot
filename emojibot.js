@@ -192,26 +192,25 @@ client.on('message', message => {
             .then(function(message) {
                 message.react("👍")
                 message.react("👎")
-            }).then(function(messagee) {
-                messagee.awaitReactions((reaction, user) => user.id == message.author.id && (reaction.emoji.name == '👍' || reaction.emoji.name == '👎'), { max: 1, time: 30000 }).then(collected => {
-                    if (collected.first().emoji.name == '👍') {
-                        message.reply('Shutting down...');
-                        client.destroy();
-                    } else
-                        message.reply('Operation canceled.');
-                }).catch(() => {
-                    message.reply('No reaction after 30 seconds, operation canceled');
-                });
+                message.pin()
+                message.delete()
             }).catch(function() {
                 //Something
-                message.reply("hey so that didn't work")
             });
 
 
         // Reacts so the user only have to click the emojis
 
         // First argument is a filter function
-
+        message.awaitReactions((reaction, user) => user.id == message.author.id && (reaction.emoji.name == '👍' || reaction.emoji.name == '👎'), { max: 1, time: 30000 }).then(collected => {
+            if (collected.first().emoji.name == '👍') {
+                message.reply('Shutting down...');
+                client.destroy();
+            } else
+                message.reply('Operation canceled.');
+        }).catch(() => {
+            message.reply('No reaction after 30 seconds, operation canceled');
+        });
     }
     /*if (b99id != -1 || jakeid != -1 || jake2id != -1 || amyid != -1 || boyle2id != -1 || boyle3id != -1 || boyleid != -1 || rosaid != -1 || terryid != -1 || yoghurtid != -1 || ginaid != -1 || holtid != -1 || holt2id != -1 || toitid != -1 ||adrianid != -1 || rosa2id != -1)  {
         message.channel.send('', {
