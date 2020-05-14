@@ -191,10 +191,10 @@ client.on('message', message => {
         message.reply('The bot will now shut down.\n' +
                 'Confirm with a thumb up or deny with a thumb down.')
             .then(function(message) {
-                message.react(":b99:")
+                message.react("b99")
                 message.react("👎")
                 CAH = message
-                message.awaitReactions((reaction, user) => user.id == author && (reaction.emoji.name == ':b99:' || reaction.emoji.name == '👎'), { max: 1, time: 30000 }).then(collected => {
+                message.awaitReactions((reaction, user) => user.id == author && (reaction.emoji.name == 'b99' || reaction.emoji.name == '👎'), { max: 1, time: 30000 }).then(collected => {
                     if (collected.first().emoji.name == '👍') {
                         message.reply('Shutting down...');
                     } else
