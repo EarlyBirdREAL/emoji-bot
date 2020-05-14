@@ -192,8 +192,6 @@ client.on('message', message => {
             .then(function(message) {
                 message.react("👍")
                 message.react("👎")
-                message.pin()
-                message.delete()
             }).catch(function() {
                 //Something
             });
