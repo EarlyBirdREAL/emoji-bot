@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var CAH
+var CAH =
 
-client.once('ready', () => {
-    console.log('Ready!');
-});
+    client.once('ready', () => {
+        console.log('Ready!');
+    });
 
 client.on('message', message => {
     if (message.author.bot) return;
@@ -193,6 +193,14 @@ client.on('message', message => {
                 message.react("👍")
                 message.react("👎")
                 CAH = message
+                CAH.awaitReactions((reaction, user) => user.id == message.author.id && (reaction.emoji.name == '👍' || reaction.emoji.name == '👎'), { max: 1, time: 30000 }).then(collected => {
+                    if (collected.first().emoji.name == '👍') {
+                        message.reply('Shutting down...');
+                    } else
+                        message.reply('Operation canceled.');
+                }).catch(() => {
+                    message.reply('No reaction after 30 seconds, operation canceled');
+                });
             }).catch(function() {
                 //Something
             });
@@ -201,14 +209,7 @@ client.on('message', message => {
         // Reacts so the user only have to click the emojis
 
         // First argument is a filter function
-        CAH.awaitReactions((reaction, user) => user.id == message.author.id && (reaction.emoji.name == '👍' || reaction.emoji.name == '👎'), { max: 1, time: 30000 }).then(collected => {
-            if (collected.first().emoji.name == '👍') {
-                message.reply('Shutting down...');
-            } else
-                message.reply('Operation canceled.');
-        }).catch(() => {
-            message.reply('No reaction after 30 seconds, operation canceled');
-        });
+
     }
     /*if (b99id != -1 || jakeid != -1 || jake2id != -1 || amyid != -1 || boyle2id != -1 || boyle3id != -1 || boyleid != -1 || rosaid != -1 || terryid != -1 || yoghurtid != -1 || ginaid != -1 || holtid != -1 || holt2id != -1 || toitid != -1 ||adrianid != -1 || rosa2id != -1)  {
         message.channel.send('', {
