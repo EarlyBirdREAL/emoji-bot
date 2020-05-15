@@ -188,15 +188,26 @@ client.on('message', message => {
                 })
         }) */
         const author = message.author.id
-        message.reply('The bot will now shut down.\n' +
-                'Confirm with a thumb up or deny with a thumb down.')
+        const exampleEmbed = new Discord.MessageEmbed()
+            .setColor('#0099ff')
+            .setTitle('Some title')
+            .setURL('https://discord.js.org/')
+            .setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
+            .setDescription('Some description here')
+            .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+            .addFields({ name: 'Regular field title', value: 'Some value here' }, { name: '\u200B', value: '\u200B' }, { name: 'Inline field title', value: 'Some value here', inline: true }, { name: 'Inline field title', value: 'Some value here', inline: true }, )
+            .addField('Inline field title', 'Some value here', true)
+            .setImage('https://i.imgur.com/wSTFkRM.png')
+            .setTimestamp()
+            .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
+        message.channel.send(exampleEmbed)
             .then(function(message) {
                 const ayy = client.emojis.find(emoji => emoji.name === "b99");
                 message.react(`643161128494432256`)
                 message.react("👎")
                 CAH = message
                 message.awaitReactions((reaction, user) => user.id == author && (reaction.emoji.name == `b99` || reaction.emoji.name == '👎'), { max: 1, time: 30000 }).then(collected => {
-                    if (collected.first().emoji.name == '👍') {
+                    if (collected.first().emoji.name == 'b99') {
                         message.reply('Shutting down...');
                     } else
                         message.reply('Operation canceled.');
