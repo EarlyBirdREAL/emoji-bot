@@ -192,10 +192,10 @@ client.on('message', message => {
                 'Confirm with a thumb up or deny with a thumb down.')
             .then(function(message) {
                 const ayy = client.emojis.find(emoji => emoji.name === "b99");
-                message.react(`${ayy}`)
+                message.react(`643161128494432256`)
                 message.react("👎")
                 CAH = message
-                message.awaitReactions((reaction, user) => user.id == author && (reaction.emoji.name == `${ayy}` || reaction.emoji.name == '👎'), { max: 1, time: 30000 }).then(collected => {
+                message.awaitReactions((reaction, user) => user.id == author && (reaction.emoji.name == `643161128494432256` || reaction.emoji.name == '👎'), { max: 1, time: 30000 }).then(collected => {
                     if (collected.first().emoji.name == '👍') {
                         message.reply('Shutting down...');
                     } else
