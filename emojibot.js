@@ -188,7 +188,7 @@ client.on('message', message => {
                 })
         }) */
         const author = message.author.id
-        const exampleEmbed = new MessageEmbed()
+        const exampleEmbed = new client.MessageEmbed()
             .setColor('#0099ff')
             .setTitle('Some title')
             .setURL('https://discord.js.org/')
