@@ -1,13 +1,33 @@
 const Discord = require('discord.js');
+const Sequelize = require('sequelize');
 const client = new Discord.Client();
-var CAH =
 
-    client.once('ready', () => {
-        console.log('Ready!');
-    });
+const sequelize = new Sequelize('database', 'user', 'password', {
+    host: 'localhost',
+    dialect: 'sqlite',
+    logging: false,
+    // SQLite only
+    storage: 'database.sqlite',
+});
+const config = sequelize.define('tags', {
+    name: {
+        type: Sequelize.STRING,
+        unique: true,
+    },
+    enlarge: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true,
+    },
+});
 
-client.on('message', message => {
+client.once('ready', () => {
+    console.log('Ready!');
+    Tags.sync();
+});
+
+client.on('message', async message => {
     if (message.author.bot) return;
+
     console.log(message.content)
     var i = 0
         /* var b99id = client.emojis.find(emoji => emoji.name === "b99").id
@@ -349,6 +369,43 @@ client.on('message', message => {
                 `./twas.jpg`
             ]
         })
+    }
+    if (message.content.startsWith("!config init")) {
+        try {
+            // equivalent to: INSERT INTO tags (name, description, username) values (?, ?, ?);
+            const tag = await config.create({
+                name: message.author.id,
+                enlarge: true,
+            });
+            return message.reply(`${message.author.username} initialized you config, your emoji enlarging has been set to true.`);
+        } catch (e) {
+            if (e.name === 'SequelizeUniqueConstraintError') {
+                return message.reply('Something went wrong please message an commisioner.');
+            }
+            return message.reply('Something went wrong please message an commisioner.');
+        }
+    }
+    if (message.content.startsWith("!config enable")) {
+        const affectedRows = await Tags.update({ enlarge: true }, { where: { name: message.author.id } });
+        if (affectedRows > 0) {
+            return message.reply(`Your emoji enlarging has been enabled.`);
+        }
+        return message.reply(`Something went wrong please message an commisioner.`);
+    }
+    if (message.content.startsWith("!config disable")) {
+        const affectedRows = await Tags.update({ enlarge: false }, { where: { name: message.author.id } });
+        if (affectedRows > 0) {
+            return message.reply(`Your emoji enlarging has been enabled.`);
+        }
+        return message.reply(`Something went wrong please message an commisioner.`);
+    }
+    if (message.content.startsWith("!config status")) {
+        const tag = await config.findOne({ where: { name: message.author.id } });
+        if (tag) {
+            // equivalent to: UPDATE tags SET usage_count = usage_count + 1 WHERE name = 'tagName';
+            return message.channel.send("Your emoji enlarging is set to " + tag.get('enlarge'));
+        }
+        return message.reply(`Something went wrong please message an commisioner.`);
     }
     if (message.author.id == '249245244674146305') {
         if (message.content.includes("i am god")) {
