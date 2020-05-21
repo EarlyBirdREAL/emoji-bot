@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "discord.js": "11.1.0",
+    "git": "^0.1.5",
+    "npm-git-install": "^0.3.0",
     "request": "2.81.0"
   }
 }
