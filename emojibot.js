@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
-//const Sequelize = require('sequelize');
+const Sequelize = require('sequelize');
 const client = new Discord.Client();
 
-/*const sequelize = new Sequelize('database', 'user', 'password', {
-    host: 'localhost',
+const sequelize = new Sequelize('d9n9rrc3i8cebb', 'qrgoiiqhrvbbrp', 'eff43065a10891ce78c0f53c9fafa317e0147956058b86c380596714cb2dd7cd', {
+    host: 'ec2-54-197-48-79.compute-1.amazonaws.com',
     dialect: 'sqlite',
     logging: false,
     // SQLite only
@@ -18,14 +18,14 @@ const config = sequelize.define('tags', {
         type: Sequelize.BOOLEAN,
         defaultValue: true,
     },
-});*/
+});
 
 client.once('ready', () => {
     console.log('Ready!');
-    //Tags.sync();
+    Tags.sync();
 });
 
-client.on('message', message => {
+client.on('message', async message => {
     if (message.author.bot) return;
 
     console.log(message.content)
@@ -370,7 +370,7 @@ client.on('message', message => {
             ]
         })
     }
-    /*if (message.content.startsWith("!config init")) {
+    if (message.content.startsWith("!config init")) {
         try {
             // equivalent to: INSERT INTO tags (name, description, username) values (?, ?, ?);
             const tag = await config.create({
@@ -385,6 +385,7 @@ client.on('message', message => {
             return message.reply('Something went wrong please message an commisioner.');
         }
     }
+    /*
     if (message.content.startsWith("!config enable")) {
         const affectedRows = await Tags.update({ enlarge: true }, { where: { name: message.author.id } });
         if (affectedRows > 0) {
