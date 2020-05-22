@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
-const Sequelize = require('sequelize');
+//const Sequelize = require('sequelize');
 const client = new Discord.Client();
 
-const sequelize = new Sequelize('database', 'user', 'password', {
+/*const sequelize = new Sequelize('database', 'user', 'password', {
     host: 'localhost',
     dialect: 'sqlite',
     logging: false,
@@ -18,14 +18,14 @@ const config = sequelize.define('tags', {
         type: Sequelize.BOOLEAN,
         defaultValue: true,
     },
-});
+});*/
 
 client.once('ready', () => {
     console.log('Ready!');
-    Tags.sync();
+    //Tags.sync();
 });
 
-client.on('message', async message => {
+client.on('message', message => {
     if (message.author.bot) return;
 
     console.log(message.content)
@@ -370,7 +370,7 @@ client.on('message', async message => {
             ]
         })
     }
-    if (message.content.startsWith("!config init")) {
+    /*if (message.content.startsWith("!config init")) {
         try {
             // equivalent to: INSERT INTO tags (name, description, username) values (?, ?, ?);
             const tag = await config.create({
@@ -407,6 +407,7 @@ client.on('message', async message => {
         }
         return message.reply(`Something went wrong please message an commisioner.`);
     }
+    */
     if (message.author.id == '249245244674146305') {
         if (message.content.includes("i am god")) {
             message.channel.send("He really is god.")
