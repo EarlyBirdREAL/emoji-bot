@@ -380,8 +380,10 @@ client.on('message', async message => {
             return message.reply(`${message.author.username} initialized you config, your emoji enlarging has been set to true.`);
         } catch (e) {
             if (e.name === 'SequelizeUniqueConstraintError') {
+                console.log(e)
                 return message.reply('Something went wrong please message an commisioner.');
             }
+            console.log(e)
             return message.reply('Something went wrong please message an commisioner.');
         }
     }
