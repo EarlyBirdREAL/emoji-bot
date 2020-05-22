@@ -22,7 +22,7 @@ const config = sequelize.define('tags', {
 
 client.once('ready', () => {
     console.log('Ready!');
-    Tags.sync();
+    config.sync();
 });
 
 client.on('message', async message => {
