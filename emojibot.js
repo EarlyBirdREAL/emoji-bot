@@ -4,7 +4,6 @@ const client = new Discord.Client();
 
 const sequelize = new Sequelize('d9n9rrc3i8cebb', 'qrgoiiqhrvbbrp', 'eff43065a10891ce78c0f53c9fafa317e0147956058b86c380596714cb2dd7cd', {
     host: 'ec2-54-197-48-79.compute-1.amazonaws.com',
-    dialect: 'sqlite',
     logging: false,
     // SQLite only
     storage: 'database.sqlite',
