@@ -362,13 +362,17 @@ server.on('message', async message => {
         })
     }
     if (message.content.startsWith("!config init")) {
-        client.query(`SELECT user_name FROM enlarge WHERE user_name='${message.author.id}';`, (err, res) => {
-            if (err) throw err;
-            for (let row of res.rows) {
-                console.log(JSON.stringify(row));
-            }
-            client.end();
-        });
+        client.query(`IF NOT EXISTS ( SELECT 1 FROM enlarge WHERE user_name = '${message.author.id}' )
+                      BEGIN
+                      INSERT INTO enlarge (user_name, enable) VALUES ('${message.author.id}', 'true')
+                      END;`,
+            (err, res) => {
+                if (err) throw err;
+                for (let row of res.rows) {
+                    message.reply('Your emoji enlarging has been enabled.')
+                }
+                client.end();
+            });
     };
     /*try {
         // equivalent to: INSERT INTO tags (name, description, username) values (?, ?, ?);
