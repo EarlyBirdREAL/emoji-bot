@@ -363,11 +363,9 @@ server.on('message', async message => {
     }
     if (message.content.startsWith("!config init")) {
         client.query(`INSERT INTO enlarge (user_name, enable) VALUES ('${message.author.id}', true)`,
-            (err, res) => {
+            (err) => {
                 if (err) throw err;
-                for (let row of res.rows) {
-                    message.reply('Your emoji enlarging has been enabled.')
-                }
+                message.reply('Your emoji enlarging has been enabled.')
                 client.end();
             });
     };
