@@ -369,7 +369,7 @@ server.on('message', async message => {
         });
     };
     if (message.content.startsWith("!config enable")) {
-        client.query(`UPDATE enlarge (enable) VALUES (true) WHERE user_name = '${message.author.id}'`,
+        client.query(`UPDATE enlarge SET enable = true WHERE user_name = '${message.author.id}'`,
             (err) => {
                 if (err) throw err;
                 message.reply('your emoji enlarging has been enabled.')
@@ -377,7 +377,7 @@ server.on('message', async message => {
             });
     };
     if (message.content.startsWith("!config disable")) {
-        client.query(`UPDATE enlarge (enable) VALUES (false) WHERE user_name = '${message.author.id}'`,
+        client.query(`UPDATE enlarge SET enable = false WHERE user_name = '${message.author.id}'`,
             (err) => {
                 console.log(err)
                 message.reply('your emoji enlarging has been disabled.')
