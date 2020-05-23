@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
-const { Clien } = require('pg');
-const client = new Discord.Client();
+const Client = require('pg');
+const server = new Discord.server();
 
-const clien = new Clien({
+const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: {
         rejectUnauthorized: false
@@ -10,48 +10,48 @@ const clien = new Clien({
 });
 
 
-client.once('ready', () => {
+server.once('ready', () => {
     console.log('Ready!');
-    clien.connect();
+    client.connect();
 });
 
-client.on('message', async message => {
+server.on('message', async message => {
     if (message.author.bot) return;
 
     console.log(message.content)
     var i = 0
-        /* var b99id = client.emojis.find(emoji => emoji.name === "b99").id
-        var b99 = client.emojis.find(emoji => emoji.name === "b99").name
-        var jakeid = client.emojis.find(emoji => emoji.name === "jake").id
-        var jake = client.emojis.find(emoji => emoji.name === "jake").name
-        var jake2id = client.emojis.find(emoji => emoji.name === "jakeshocked").id
-        var jake2 = client.emojis.find(emoji => emoji.name === "jakeshocked").name
-        var amyid = client.emojis.find(emoji => emoji.name === "amy").id
-        var amy = client.emojis.find(emoji => emoji.name === "amy").name
-        var boyle2id = client.emojis.find(emoji => emoji.name === "boyleshocked").id
-        var boyle2 = client.emojis.find(emoji => emoji.name === "boyleshocked").name
-        var boyle3id = client.emojis.find(emoji => emoji.name === "nopainboyle").id
-        var boyle3 = client.emojis.find(emoji => emoji.name === "nopainboyle").name
-        var boyleid = client.emojis.find(emoji => emoji.name === "boyle").id
-        var boyle = client.emojis.find(emoji => emoji.name === "boyle").name
-        var rosaid = client.emojis.find(emoji => emoji.name === "rosa").id
-        var rosa = client.emojis.find(emoji => emoji.name === "rosa").name
-        var terryid = client.emojis.find(emoji => emoji.name === "terry").id
-        var terry = client.emojis.find(emoji => emoji.name === "terry").name
-        var yoghurtid = client.emojis.find(emoji => emoji.name === "yoghurt").id
-        var yoghurt = client.emojis.find(emoji => emoji.name === "yoghurt").name
-        var ginaid = client.emojis.find(emoji => emoji.name === "gina").id
-        var gina = client.emojis.find(emoji => emoji.name === "gina").name
-        var holtid = client.emojis.find(emoji => emoji.name === "holt").id
-        var holt = client.emojis.find(emoji => emoji.name === "holt").name
-        var holt2id = client.emojis.find(emoji => emoji.name === "fakeholt").id
-        var holt2 = client.emojis.find(emoji => emoji.name === "fakeholt").name
-        var toitid = client.emojis.find(emoji => emoji.name === "toitnups").id
-        var toit = client.emojis.find(emoji => emoji.name === "toitnups").name
-        var adrianid = client.emojis.find(emoji => emoji.name === "adrian").id
-        var adrian = client.emojis.find(emoji => emoji.name === "adrian").name
-        var rosa2id = client.emojis.find(emoji => emoji.name === "rosamad").id
-        var rosa2 = client.emojis.find(emoji => emoji.name === "rosamad").name */
+        /* var b99id = server.emojis.find(emoji => emoji.name === "b99").id
+        var b99 = server.emojis.find(emoji => emoji.name === "b99").name
+        var jakeid = server.emojis.find(emoji => emoji.name === "jake").id
+        var jake = server.emojis.find(emoji => emoji.name === "jake").name
+        var jake2id = server.emojis.find(emoji => emoji.name === "jakeshocked").id
+        var jake2 = server.emojis.find(emoji => emoji.name === "jakeshocked").name
+        var amyid = server.emojis.find(emoji => emoji.name === "amy").id
+        var amy = server.emojis.find(emoji => emoji.name === "amy").name
+        var boyle2id = server.emojis.find(emoji => emoji.name === "boyleshocked").id
+        var boyle2 = server.emojis.find(emoji => emoji.name === "boyleshocked").name
+        var boyle3id = server.emojis.find(emoji => emoji.name === "nopainboyle").id
+        var boyle3 = server.emojis.find(emoji => emoji.name === "nopainboyle").name
+        var boyleid = server.emojis.find(emoji => emoji.name === "boyle").id
+        var boyle = server.emojis.find(emoji => emoji.name === "boyle").name
+        var rosaid = server.emojis.find(emoji => emoji.name === "rosa").id
+        var rosa = server.emojis.find(emoji => emoji.name === "rosa").name
+        var terryid = server.emojis.find(emoji => emoji.name === "terry").id
+        var terry = server.emojis.find(emoji => emoji.name === "terry").name
+        var yoghurtid = server.emojis.find(emoji => emoji.name === "yoghurt").id
+        var yoghurt = server.emojis.find(emoji => emoji.name === "yoghurt").name
+        var ginaid = server.emojis.find(emoji => emoji.name === "gina").id
+        var gina = server.emojis.find(emoji => emoji.name === "gina").name
+        var holtid = server.emojis.find(emoji => emoji.name === "holt").id
+        var holt = server.emojis.find(emoji => emoji.name === "holt").name
+        var holt2id = server.emojis.find(emoji => emoji.name === "fakeholt").id
+        var holt2 = server.emojis.find(emoji => emoji.name === "fakeholt").name
+        var toitid = server.emojis.find(emoji => emoji.name === "toitnups").id
+        var toit = server.emojis.find(emoji => emoji.name === "toitnups").name
+        var adrianid = server.emojis.find(emoji => emoji.name === "adrian").id
+        var adrian = server.emojis.find(emoji => emoji.name === "adrian").name
+        var rosa2id = server.emojis.find(emoji => emoji.name === "rosamad").id
+        var rosa2 = server.emojis.find(emoji => emoji.name === "rosamad").name */
     if (message.content.includes(":b99:")) {
         message.channel.send('', {
             files: [
@@ -361,13 +361,13 @@ client.on('message', async message => {
         })
     }
     if (message.content.startsWith("!config init")) {
-        clien.query(`SELECT user_name FROM d6emhm7uh31vi7 WHERE user_name='${message.author.id}';`, (err, res) => {
-            if (err) clien.query(`INSERT INTO d6emhm7uh31vi7 (user_name, enable) VALUES (${message.author.id}, true)`);
+        client.query(`SELECT user_name FROM d6emhm7uh31vi7 WHERE user_name='${message.author.id}';`, (err, res) => {
+            if (err) client.query(`INSERT INTO d6emhm7uh31vi7 (user_name, enable) VALUES (${message.author.id}, true)`);
             console.log(err)
             if (!err) {
-                clien.query(`UPDATE d6emhm7uh31vi7 SET enable = true WHERE user_name = '${message.author.id}`)
+                client.query(`UPDATE d6emhm7uh31vi7 SET enable = true WHERE user_name = '${message.author.id}`)
             }
-            clien.end();
+            client.end();
         });
         /*try {
             // equivalent to: INSERT INTO tags (name, description, username) values (?, ?, ?);
@@ -486,7 +486,7 @@ client.on('message', async message => {
 
         message.channel.send({ embed: exampleEmbed })
             .then(function(message) {
-                const ayy = client.emojis.find(emoji => emoji.name === "b99");
+                const ayy = server.emojis.find(emoji => emoji.name === "b99");
                 message.react(`643161128494432256`)
                 message.react("👎")
                 CAH = message
@@ -526,4 +526,4 @@ client.on('message', async message => {
     } */
 })
 
-client.login(process.env.BOT_TOKEN);
+server.login(process.env.BOT_TOKEN);
