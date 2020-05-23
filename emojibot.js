@@ -363,7 +363,7 @@ server.on('message', async message => {
     }
     if (message.content.startsWith("!config init")) {
         client.query(`SELECT user_name FROM enlarge WHERE user_name='${message.author.id}';`, (err, res) => {
-            if (err) client.query(`INSERT INTO enlarge (user_name, enable) VALUES (${message.author.id}, true)`);
+            if (err) throw client.query(`INSERT INTO enlarge (user_name, enable) VALUES (${message.author.id}, true)`);
             console.log(err)
             if (!err) {
                 client.query(`UPDATE enlarge SET enable = true WHERE user_name = '${message.author.id}`)
