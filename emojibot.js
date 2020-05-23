@@ -1,27 +1,18 @@
 const Discord = require('discord.js');
-const Sequelize = require('sequelize');
+const { Clien } = require('pg');
 const client = new Discord.Client();
 
-const sequelize = new Sequelize('d9n9rrc3i8cebb', 'qrgoiiqhrvbbrp', 'eff43065a10891ce78c0f53c9fafa317e0147956058b86c380596714cb2dd7cd', {
-    host: 'ec2-54-197-48-79.compute-1.amazonaws.com',
-    dialect: 'mysql',
-    logging: false,
-    // SQLite only
+const clien = new Clien({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
-const config = sequelize.define('tags', {
-    name: {
-        type: Sequelize.STRING,
-        unique: true,
-    },
-    enlarge: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: true,
-    },
-});
+
 
 client.once('ready', () => {
     console.log('Ready!');
-    config.sync();
+    clien.connect();
 });
 
 client.on('message', async message => {
@@ -370,7 +361,15 @@ client.on('message', async message => {
         })
     }
     if (message.content.startsWith("!config init")) {
-        try {
+        clien.query(`SELECT user_name FROM d6emhm7uh31vi7 WHERE user_name='${message.author.id}';`, (err, res) => {
+            if (err) clien.query(`INSERT INTO d6emhm7uh31vi7 (user_name, enable) VALUES (${message.author.id}, true)`);
+            console.log(err)
+            if (!err) {
+                clien.query(`UPDATE d6emhm7uh31vi7 SET enable = true WHERE user_name = '${message.author.id}`)
+            }
+            clien.end();
+        });
+        /*try {
             // equivalent to: INSERT INTO tags (name, description, username) values (?, ?, ?);
             const tag = await config.create({
                 name: message.author.id,
@@ -384,7 +383,7 @@ client.on('message', async message => {
             }
             console.log(e)
             return message.reply('Something went wrong please message an commisioner.');
-        }
+        }*/
     }
     /*
     if (message.content.startsWith("!config enable")) {
