@@ -379,7 +379,6 @@ server.on('message', async message => {
     if (message.content.startsWith("!config disable")) {
         client.query(`UPDATE enlarge (enable) VALUES (false) WHERE user_name = '${message.author.id}'`,
             (err) => {
-                if (err) throw err;
                 message.reply('your emoji enlarging has been disabled.')
                 client.end();
             });
