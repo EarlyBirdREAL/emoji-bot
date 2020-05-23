@@ -17,399 +17,399 @@ server.once('ready', () => {
 });
 
 server.on('message', async message => {
-            if (message.author.bot) return;
+    if (message.author.bot) return;
 
-            console.log(message.content)
-            var i = 0
-                /* var b99id = server.emojis.find(emoji => emoji.name === "b99").id
-                var b99 = server.emojis.find(emoji => emoji.name === "b99").name
-                var jakeid = server.emojis.find(emoji => emoji.name === "jake").id
-                var jake = server.emojis.find(emoji => emoji.name === "jake").name
-                var jake2id = server.emojis.find(emoji => emoji.name === "jakeshocked").id
-                var jake2 = server.emojis.find(emoji => emoji.name === "jakeshocked").name
-                var amyid = server.emojis.find(emoji => emoji.name === "amy").id
-                var amy = server.emojis.find(emoji => emoji.name === "amy").name
-                var boyle2id = server.emojis.find(emoji => emoji.name === "boyleshocked").id
-                var boyle2 = server.emojis.find(emoji => emoji.name === "boyleshocked").name
-                var boyle3id = server.emojis.find(emoji => emoji.name === "nopainboyle").id
-                var boyle3 = server.emojis.find(emoji => emoji.name === "nopainboyle").name
-                var boyleid = server.emojis.find(emoji => emoji.name === "boyle").id
-                var boyle = server.emojis.find(emoji => emoji.name === "boyle").name
-                var rosaid = server.emojis.find(emoji => emoji.name === "rosa").id
-                var rosa = server.emojis.find(emoji => emoji.name === "rosa").name
-                var terryid = server.emojis.find(emoji => emoji.name === "terry").id
-                var terry = server.emojis.find(emoji => emoji.name === "terry").name
-                var yoghurtid = server.emojis.find(emoji => emoji.name === "yoghurt").id
-                var yoghurt = server.emojis.find(emoji => emoji.name === "yoghurt").name
-                var ginaid = server.emojis.find(emoji => emoji.name === "gina").id
-                var gina = server.emojis.find(emoji => emoji.name === "gina").name
-                var holtid = server.emojis.find(emoji => emoji.name === "holt").id
-                var holt = server.emojis.find(emoji => emoji.name === "holt").name
-                var holt2id = server.emojis.find(emoji => emoji.name === "fakeholt").id
-                var holt2 = server.emojis.find(emoji => emoji.name === "fakeholt").name
-                var toitid = server.emojis.find(emoji => emoji.name === "toitnups").id
-                var toit = server.emojis.find(emoji => emoji.name === "toitnups").name
-                var adrianid = server.emojis.find(emoji => emoji.name === "adrian").id
-                var adrian = server.emojis.find(emoji => emoji.name === "adrian").name
-                var rosa2id = server.emojis.find(emoji => emoji.name === "rosamad").id
-                var rosa2 = server.emojis.find(emoji => emoji.name === "rosamad").name */
-            if (message.content.includes(":b99:")) {
-                message.channel.send('', {
-                    files: [
-                        `./b99.jpg`
-                    ]
-                })
+    console.log(message.content)
+    var i = 0
+        /* var b99id = server.emojis.find(emoji => emoji.name === "b99").id
+        var b99 = server.emojis.find(emoji => emoji.name === "b99").name
+        var jakeid = server.emojis.find(emoji => emoji.name === "jake").id
+        var jake = server.emojis.find(emoji => emoji.name === "jake").name
+        var jake2id = server.emojis.find(emoji => emoji.name === "jakeshocked").id
+        var jake2 = server.emojis.find(emoji => emoji.name === "jakeshocked").name
+        var amyid = server.emojis.find(emoji => emoji.name === "amy").id
+        var amy = server.emojis.find(emoji => emoji.name === "amy").name
+        var boyle2id = server.emojis.find(emoji => emoji.name === "boyleshocked").id
+        var boyle2 = server.emojis.find(emoji => emoji.name === "boyleshocked").name
+        var boyle3id = server.emojis.find(emoji => emoji.name === "nopainboyle").id
+        var boyle3 = server.emojis.find(emoji => emoji.name === "nopainboyle").name
+        var boyleid = server.emojis.find(emoji => emoji.name === "boyle").id
+        var boyle = server.emojis.find(emoji => emoji.name === "boyle").name
+        var rosaid = server.emojis.find(emoji => emoji.name === "rosa").id
+        var rosa = server.emojis.find(emoji => emoji.name === "rosa").name
+        var terryid = server.emojis.find(emoji => emoji.name === "terry").id
+        var terry = server.emojis.find(emoji => emoji.name === "terry").name
+        var yoghurtid = server.emojis.find(emoji => emoji.name === "yoghurt").id
+        var yoghurt = server.emojis.find(emoji => emoji.name === "yoghurt").name
+        var ginaid = server.emojis.find(emoji => emoji.name === "gina").id
+        var gina = server.emojis.find(emoji => emoji.name === "gina").name
+        var holtid = server.emojis.find(emoji => emoji.name === "holt").id
+        var holt = server.emojis.find(emoji => emoji.name === "holt").name
+        var holt2id = server.emojis.find(emoji => emoji.name === "fakeholt").id
+        var holt2 = server.emojis.find(emoji => emoji.name === "fakeholt").name
+        var toitid = server.emojis.find(emoji => emoji.name === "toitnups").id
+        var toit = server.emojis.find(emoji => emoji.name === "toitnups").name
+        var adrianid = server.emojis.find(emoji => emoji.name === "adrian").id
+        var adrian = server.emojis.find(emoji => emoji.name === "adrian").name
+        var rosa2id = server.emojis.find(emoji => emoji.name === "rosamad").id
+        var rosa2 = server.emojis.find(emoji => emoji.name === "rosamad").name */
+    if (message.content.includes(":b99:")) {
+        message.channel.send('', {
+            files: [
+                `./b99.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":jake:")) {
+        message.channel.send("", {
+            files: [
+                `./jake.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":jakeshocked:")) {
+        message.channel.send("", {
+            files: [
+                `./jakeshocked.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":amy:")) {
+        message.channel.send("", {
+            files: [
+                `./amy.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":boyle:")) {
+        message.channel.send("", {
+            files: [
+                `./boyle.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":boyleshocked:")) {
+        message.channel.send("", {
+            files: [
+                `./boyleshocked.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":nopainboyle:")) {
+        message.channel.send("", {
+            files: [
+                `./nopainboyle.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":rosa:")) {
+        message.channel.send("", {
+            files: [
+                `./rosa.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":terry:")) {
+        message.channel.send("", {
+            files: [
+                `./terry.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":yoghurt:")) {
+        message.channel.send("", {
+            files: [
+                `./yoghurt.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":gina:")) {
+        message.channel.send("", {
+            files: [
+                `./gina.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":holt:")) {
+        message.channel.send("", {
+            files: [
+                `./holt.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":fakeholt:")) {
+        message.channel.send("", {
+            files: [
+                `./fakeholt.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":toitnups:")) {
+        message.channel.send("", {
+            files: [
+                `./toitnups.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":adrian:")) {
+        message.channel.send("", {
+            files: [
+                `./adrian.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":rosamad:")) {
+        message.channel.send("", {
+            files: [
+                `./rosamad.png`
+            ]
+        })
+    }
+    if (message.content.includes(":Ohwait:")) {
+        message.channel.send("", {
+            files: [
+                `./ohwait.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":CuffedHolt:")) {
+        message.channel.send("", {
+            files: [
+                `./cuffedholt.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":Muchacho:")) {
+        message.channel.send("", {
+            files: [
+                `./muchacho.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":HotHaircut:")) {
+        message.channel.send("", {
+            files: [
+                `./hothaircut.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":Fyou:")) {
+        message.channel.send("", {
+            files: [
+                `./fyou.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":NoYoghurtInStores:")) {
+        message.channel.send("", {
+            files: [
+                `./noyoghurtinstores.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":StaplerMan:")) {
+        message.channel.send("", {
+            files: [
+                `./staplerman.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":MayIHaveSomeCocain:")) {
+        message.channel.send("", {
+            files: [
+                `./mayihavesomecocain.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":ActNormal:")) {
+        message.channel.send("", {
+            files: [
+                `./actnormal.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":LISTENYOUSICKSONOFAB:")) {
+        message.channel.send("", {
+            files: [
+                `./listenyousicksonofab.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":Noice:")) {
+        message.channel.send("", {
+            files: [
+                `./noice.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":PeraltiagoScream:")) {
+        message.channel.send("", {
+            files: [
+                `./peraltiagoscream.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":AAAAAAAAAAA:")) {
+        message.channel.send("", {
+            files: [
+                `./aaaaaaaaaaa.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":NINENINE:")) {
+        message.channel.send("", {
+            files: [
+                `./ninenine.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":whatyoumean:")) {
+        message.channel.send("", {
+            files: [
+                `./whatyoumean.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":LeftOnAirport:")) {
+        message.channel.send("", {
+            files: [
+                `./leftonairport.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":ThatsMean:")) {
+        message.channel.send("", {
+            files: [
+                `./thatsmean.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":WeinerWarriors:")) {
+        message.channel.send("", {
+            files: [
+                `./weinerwarriors.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":NoCap:")) {
+        message.channel.send("", {
+            files: [
+                `./nocap.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":WingSlutz:")) {
+        message.channel.send("", {
+            files: [
+                `./wingslutz.png`
+            ]
+        })
+    }
+    if (message.content.includes(":Hewo:")) {
+        message.channel.send("", {
+            files: [
+                `./hewo.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":AmyFacepalm:")) {
+        message.channel.send("", {
+            files: [
+                `./amyfacepalm.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":RosaGross:")) {
+        message.channel.send("", {
+            files: [
+                `./rosagross.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":Imscared:")) {
+        message.channel.send("", {
+            files: [
+                `./imscared.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":Hitchcockscared:")) {
+        message.channel.send("", {
+            files: [
+                `./hitchcockscared.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":WeinerWarriorHug:")) {
+        message.channel.send("", {
+            files: [
+                `./wienerwarriorhug.jpg`
+            ]
+        })
+    }
+    if (message.content.includes(":HoltThinking:")) {
+        message.channel.send("", {
+            files: [
+                `./holtthinking.jpg`
+            ]
+        })
+    }
+    if (message.content.includes("twas")) {
+        message.channel.send("", {
+            files: [
+                `./twas.jpg`
+            ]
+        })
+    }
+    if (message.content.startsWith("!config init")) {
+        client.query(`SELECT user_name FROM enlarge WHERE user_name='${message.author.id}';`, (err, res) => {
+            if (err) throw err;
+            for (let row of res.rows) {
+                console.log(JSON.stringify(row));
             }
-            if (message.content.includes(":jake:")) {
-                message.channel.send("", {
-                    files: [
-                        `./jake.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":jakeshocked:")) {
-                message.channel.send("", {
-                    files: [
-                        `./jakeshocked.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":amy:")) {
-                message.channel.send("", {
-                    files: [
-                        `./amy.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":boyle:")) {
-                message.channel.send("", {
-                    files: [
-                        `./boyle.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":boyleshocked:")) {
-                message.channel.send("", {
-                    files: [
-                        `./boyleshocked.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":nopainboyle:")) {
-                message.channel.send("", {
-                    files: [
-                        `./nopainboyle.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":rosa:")) {
-                message.channel.send("", {
-                    files: [
-                        `./rosa.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":terry:")) {
-                message.channel.send("", {
-                    files: [
-                        `./terry.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":yoghurt:")) {
-                message.channel.send("", {
-                    files: [
-                        `./yoghurt.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":gina:")) {
-                message.channel.send("", {
-                    files: [
-                        `./gina.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":holt:")) {
-                message.channel.send("", {
-                    files: [
-                        `./holt.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":fakeholt:")) {
-                message.channel.send("", {
-                    files: [
-                        `./fakeholt.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":toitnups:")) {
-                message.channel.send("", {
-                    files: [
-                        `./toitnups.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":adrian:")) {
-                message.channel.send("", {
-                    files: [
-                        `./adrian.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":rosamad:")) {
-                message.channel.send("", {
-                    files: [
-                        `./rosamad.png`
-                    ]
-                })
-            }
-            if (message.content.includes(":Ohwait:")) {
-                message.channel.send("", {
-                    files: [
-                        `./ohwait.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":CuffedHolt:")) {
-                message.channel.send("", {
-                    files: [
-                        `./cuffedholt.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":Muchacho:")) {
-                message.channel.send("", {
-                    files: [
-                        `./muchacho.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":HotHaircut:")) {
-                message.channel.send("", {
-                    files: [
-                        `./hothaircut.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":Fyou:")) {
-                message.channel.send("", {
-                    files: [
-                        `./fyou.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":NoYoghurtInStores:")) {
-                message.channel.send("", {
-                    files: [
-                        `./noyoghurtinstores.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":StaplerMan:")) {
-                message.channel.send("", {
-                    files: [
-                        `./staplerman.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":MayIHaveSomeCocain:")) {
-                message.channel.send("", {
-                    files: [
-                        `./mayihavesomecocain.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":ActNormal:")) {
-                message.channel.send("", {
-                    files: [
-                        `./actnormal.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":LISTENYOUSICKSONOFAB:")) {
-                message.channel.send("", {
-                    files: [
-                        `./listenyousicksonofab.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":Noice:")) {
-                message.channel.send("", {
-                    files: [
-                        `./noice.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":PeraltiagoScream:")) {
-                message.channel.send("", {
-                    files: [
-                        `./peraltiagoscream.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":AAAAAAAAAAA:")) {
-                message.channel.send("", {
-                    files: [
-                        `./aaaaaaaaaaa.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":NINENINE:")) {
-                message.channel.send("", {
-                    files: [
-                        `./ninenine.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":whatyoumean:")) {
-                message.channel.send("", {
-                    files: [
-                        `./whatyoumean.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":LeftOnAirport:")) {
-                message.channel.send("", {
-                    files: [
-                        `./leftonairport.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":ThatsMean:")) {
-                message.channel.send("", {
-                    files: [
-                        `./thatsmean.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":WeinerWarriors:")) {
-                message.channel.send("", {
-                    files: [
-                        `./weinerwarriors.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":NoCap:")) {
-                message.channel.send("", {
-                    files: [
-                        `./nocap.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":WingSlutz:")) {
-                message.channel.send("", {
-                    files: [
-                        `./wingslutz.png`
-                    ]
-                })
-            }
-            if (message.content.includes(":Hewo:")) {
-                message.channel.send("", {
-                    files: [
-                        `./hewo.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":AmyFacepalm:")) {
-                message.channel.send("", {
-                    files: [
-                        `./amyfacepalm.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":RosaGross:")) {
-                message.channel.send("", {
-                    files: [
-                        `./rosagross.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":Imscared:")) {
-                message.channel.send("", {
-                    files: [
-                        `./imscared.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":Hitchcockscared:")) {
-                message.channel.send("", {
-                    files: [
-                        `./hitchcockscared.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":WeinerWarriorHug:")) {
-                message.channel.send("", {
-                    files: [
-                        `./wienerwarriorhug.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes(":HoltThinking:")) {
-                message.channel.send("", {
-                    files: [
-                        `./holtthinking.jpg`
-                    ]
-                })
-            }
-            if (message.content.includes("twas")) {
-                message.channel.send("", {
-                    files: [
-                        `./twas.jpg`
-                    ]
-                })
-            }
-            if (message.content.startsWith("!config init")) {
-                client.query(`SELECT user_name FROM enlarge WHERE user_name='${message.author.id}';`, (err, res) => {
-                    if (err) throw err;
-                    for (let row of res.rows) {
-                        console.log(JSON.stringify(row));
-                    }
-                    client.end();
-                });
-            });
-        /*try {
-            // equivalent to: INSERT INTO tags (name, description, username) values (?, ?, ?);
-            const tag = await config.create({
-                name: message.author.id,
-                enlarge: true,
-            });
-            return message.reply(`${message.author.username} initialized you config, your emoji enlarging has been set to true.`);
-        } catch (e) {
-            if (e.name === 'SequelizeUniqueConstraintError') {
-                console.log(e)
-                return message.reply('Something went wrong please message an commisioner.');
-            }
+            client.end();
+        });
+    };
+    /*try {
+        // equivalent to: INSERT INTO tags (name, description, username) values (?, ?, ?);
+        const tag = await config.create({
+            name: message.author.id,
+            enlarge: true,
+        });
+        return message.reply(`${message.author.username} initialized you config, your emoji enlarging has been set to true.`);
+    } catch (e) {
+        if (e.name === 'SequelizeUniqueConstraintError') {
             console.log(e)
             return message.reply('Something went wrong please message an commisioner.');
-        }*/
-    }
-    /*
-    if (message.content.startsWith("!config enable")) {
-        const affectedRows = await Tags.update({ enlarge: true }, { where: { name: message.author.id } });
-        if (affectedRows > 0) {
-            return message.reply(`Your emoji enlarging has been enabled.`);
         }
-        return message.reply(`Something went wrong please message an commisioner.`);
+        console.log(e)
+        return message.reply('Something went wrong please message an commisioner.');
+    }*/
+}
+/*
+if (message.content.startsWith("!config enable")) {
+    const affectedRows = await Tags.update({ enlarge: true }, { where: { name: message.author.id } });
+    if (affectedRows > 0) {
+        return message.reply(`Your emoji enlarging has been enabled.`);
     }
-    if (message.content.startsWith("!config disable")) {
-        const affectedRows = await Tags.update({ enlarge: false }, { where: { name: message.author.id } });
-        if (affectedRows > 0) {
-            return message.reply(`Your emoji enlarging has been enabled.`);
-        }
-        return message.reply(`Something went wrong please message an commisioner.`);
+    return message.reply(`Something went wrong please message an commisioner.`);
+}
+if (message.content.startsWith("!config disable")) {
+    const affectedRows = await Tags.update({ enlarge: false }, { where: { name: message.author.id } });
+    if (affectedRows > 0) {
+        return message.reply(`Your emoji enlarging has been enabled.`);
     }
-    if (message.content.startsWith("!config status")) {
-        const tag = await config.findOne({ where: { name: message.author.id } });
-        if (tag) {
-            // equivalent to: UPDATE tags SET usage_count = usage_count + 1 WHERE name = 'tagName';
-            return message.channel.send("Your emoji enlarging is set to " + tag.get('enlarge'));
-        }
-        return message.reply(`Something went wrong please message an commisioner.`);
+    return message.reply(`Something went wrong please message an commisioner.`);
+}
+if (message.content.startsWith("!config status")) {
+    const tag = await config.findOne({ where: { name: message.author.id } });
+    if (tag) {
+        // equivalent to: UPDATE tags SET usage_count = usage_count + 1 WHERE name = 'tagName';
+        return message.channel.send("Your emoji enlarging is set to " + tag.get('enlarge'));
     }
-    */
+    return message.reply(`Something went wrong please message an commisioner.`);
+}
+*/
 if (message.author.id == '249245244674146305') {
     if (message.content.includes("i am god")) {
         message.channel.send("He really is god.")
