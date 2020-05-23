@@ -385,146 +385,146 @@ server.on('message', async message => {
         console.log(e)
         return message.reply('Something went wrong please message an commisioner.');
     }*/
-}
-/*
-if (message.content.startsWith("!config enable")) {
-    const affectedRows = await Tags.update({ enlarge: true }, { where: { name: message.author.id } });
-    if (affectedRows > 0) {
-        return message.reply(`Your emoji enlarging has been enabled.`);
+
+    /*
+    if (message.content.startsWith("!config enable")) {
+        const affectedRows = await Tags.update({ enlarge: true }, { where: { name: message.author.id } });
+        if (affectedRows > 0) {
+            return message.reply(`Your emoji enlarging has been enabled.`);
+        }
+        return message.reply(`Something went wrong please message an commisioner.`);
     }
-    return message.reply(`Something went wrong please message an commisioner.`);
-}
-if (message.content.startsWith("!config disable")) {
-    const affectedRows = await Tags.update({ enlarge: false }, { where: { name: message.author.id } });
-    if (affectedRows > 0) {
-        return message.reply(`Your emoji enlarging has been enabled.`);
+    if (message.content.startsWith("!config disable")) {
+        const affectedRows = await Tags.update({ enlarge: false }, { where: { name: message.author.id } });
+        if (affectedRows > 0) {
+            return message.reply(`Your emoji enlarging has been enabled.`);
+        }
+        return message.reply(`Something went wrong please message an commisioner.`);
     }
-    return message.reply(`Something went wrong please message an commisioner.`);
-}
-if (message.content.startsWith("!config status")) {
-    const tag = await config.findOne({ where: { name: message.author.id } });
-    if (tag) {
-        // equivalent to: UPDATE tags SET usage_count = usage_count + 1 WHERE name = 'tagName';
-        return message.channel.send("Your emoji enlarging is set to " + tag.get('enlarge'));
+    if (message.content.startsWith("!config status")) {
+        const tag = await config.findOne({ where: { name: message.author.id } });
+        if (tag) {
+            // equivalent to: UPDATE tags SET usage_count = usage_count + 1 WHERE name = 'tagName';
+            return message.channel.send("Your emoji enlarging is set to " + tag.get('enlarge'));
+        }
+        return message.reply(`Something went wrong please message an commisioner.`);
     }
-    return message.reply(`Something went wrong please message an commisioner.`);
-}
-*/
-if (message.author.id == '249245244674146305') {
-    if (message.content.includes("i am god")) {
+    */
+    if (message.author.id == '249245244674146305') {
+        if (message.content.includes("i am god")) {
+            message.channel.send("He really is god.")
+        }
+    }
+    if (message.content.includes("<@!249245244674146305> is god")) {
+        message.channel.send(`You're absolutely right ${message.author}!`)
+    }
+    if (message.content.includes("<@!426214039241359372> is god")) {
+        message.channel.send(`You're absolutely right ${message.author}!`)
+    }
+    if (message.content.includes("@Captain Raymond Jacob Holt is god")) {
         message.channel.send("He really is god.")
     }
-}
-if (message.content.includes("<@!249245244674146305> is god")) {
-    message.channel.send(`You're absolutely right ${message.author}!`)
-}
-if (message.content.includes("<@!426214039241359372> is god")) {
-    message.channel.send(`You're absolutely right ${message.author}!`)
-}
-if (message.content.includes("@Captain Raymond Jacob Holt is god")) {
-    message.channel.send("He really is god.")
-}
-if (message.content.startsWith('!CAH')) {
+    if (message.content.startsWith('!CAH')) {
 
-    /*const filter = respone => respone.author.id == message.author.id;
-    message.channel.send("How many players?").then(() => {
-        message.channel.awaitMessages(filter, { max: 6, time: 30000, errors: ['time'] })
-            .then(collected => {
-                message.channel.send(`${collected.size} number of players joined`)
-            })
-            .catch(collected => {
-                message.channel.send('Please restart')
-            })
-    }) */
-    const author = message.author.id
-    const exampleEmbed = {
-        color: 0x0099ff,
-        title: 'Some title',
-        url: 'https://discord.js.org',
-        author: {
-            name: 'Some name',
-            icon_url: 'https://i.imgur.com/wSTFkRM.png',
+        /*const filter = respone => respone.author.id == message.author.id;
+        message.channel.send("How many players?").then(() => {
+            message.channel.awaitMessages(filter, { max: 6, time: 30000, errors: ['time'] })
+                .then(collected => {
+                    message.channel.send(`${collected.size} number of players joined`)
+                })
+                .catch(collected => {
+                    message.channel.send('Please restart')
+                })
+        }) */
+        const author = message.author.id
+        const exampleEmbed = {
+            color: 0x0099ff,
+            title: 'Some title',
             url: 'https://discord.js.org',
-        },
-        description: 'Some description here',
-        thumbnail: {
-            url: 'https://i.imgur.com/wSTFkRM.png',
-        },
-        fields: [{
-                name: 'Regular field title',
-                value: 'Some value here',
+            author: {
+                name: 'Some name',
+                icon_url: 'https://i.imgur.com/wSTFkRM.png',
+                url: 'https://discord.js.org',
             },
-            {
-                name: '\u200b',
-                value: '\u200b',
-                inline: false,
+            description: 'Some description here',
+            thumbnail: {
+                url: 'https://i.imgur.com/wSTFkRM.png',
             },
-            {
-                name: 'Inline field title',
-                value: 'Some value here',
-                inline: true,
+            fields: [{
+                    name: 'Regular field title',
+                    value: 'Some value here',
+                },
+                {
+                    name: '\u200b',
+                    value: '\u200b',
+                    inline: false,
+                },
+                {
+                    name: 'Inline field title',
+                    value: 'Some value here',
+                    inline: true,
+                },
+                {
+                    name: 'Inline field title',
+                    value: 'Some value here',
+                    inline: true,
+                },
+                {
+                    name: 'Inline field title',
+                    value: 'Some value here',
+                    inline: true,
+                },
+            ],
+            image: {
+                url: 'https://i.imgur.com/wSTFkRM.png',
             },
-            {
-                name: 'Inline field title',
-                value: 'Some value here',
-                inline: true,
+            timestamp: new Date(),
+            footer: {
+                text: 'Some footer text here',
+                icon_url: 'https://i.imgur.com/wSTFkRM.png',
             },
-            {
-                name: 'Inline field title',
-                value: 'Some value here',
-                inline: true,
-            },
-        ],
-        image: {
-            url: 'https://i.imgur.com/wSTFkRM.png',
-        },
-        timestamp: new Date(),
-        footer: {
-            text: 'Some footer text here',
-            icon_url: 'https://i.imgur.com/wSTFkRM.png',
-        },
-    };
+        };
 
-    message.channel.send({ embed: exampleEmbed })
-        .then(function(message) {
-            const ayy = server.emojis.find(emoji => emoji.name === "b99");
-            message.react(`643161128494432256`)
-            message.react("👎")
-            CAH = message
-            message.awaitReactions((reaction, user) => user.id == author && (reaction.emoji.name == `b99` || reaction.emoji.name == '👎'), { max: 1, time: 30000 }).then(collected => {
-                if (collected.first().emoji.name == 'b99') {
-                    message.reply('Shutting down...');
-                } else
-                    message.reply('Operation canceled.');
-            }).catch(() => {
-                message.reply('No reaction after 30 seconds, operation canceled');
+        message.channel.send({ embed: exampleEmbed })
+            .then(function(message) {
+                const ayy = server.emojis.find(emoji => emoji.name === "b99");
+                message.react(`643161128494432256`)
+                message.react("👎")
+                CAH = message
+                message.awaitReactions((reaction, user) => user.id == author && (reaction.emoji.name == `b99` || reaction.emoji.name == '👎'), { max: 1, time: 30000 }).then(collected => {
+                    if (collected.first().emoji.name == 'b99') {
+                        message.reply('Shutting down...');
+                    } else
+                        message.reply('Operation canceled.');
+                }).catch(() => {
+                    message.reply('No reaction after 30 seconds, operation canceled');
+                });
+            }).catch(function() {
+                //Something
             });
-        }).catch(function() {
-            //Something
+
+
+        // Reacts so the user only have to click the emojis
+
+        // First argument is a filter function
+
+    }
+    /*if (b99id != -1 || jakeid != -1 || jake2id != -1 || amyid != -1 || boyle2id != -1 || boyle3id != -1 || boyleid != -1 || rosaid != -1 || terryid != -1 || yoghurtid != -1 || ginaid != -1 || holtid != -1 || holt2id != -1 || toitid != -1 ||adrianid != -1 || rosa2id != -1)  {
+        message.channel.send('', {
+            files: [
+                `./${b99}.png`,
+                `./${jake}.png`,
+                `./${jake2}.png`,
+                `/${boyle2}.png`,
+                `/${boyle3}.png`,
+                `/${boyle}.png`,
+                `/${rosa}.png`,
+                `/${terry}.png`,
+                `/${}.png`,
+            ]
         });
-
-
-    // Reacts so the user only have to click the emojis
-
-    // First argument is a filter function
-
-}
-/*if (b99id != -1 || jakeid != -1 || jake2id != -1 || amyid != -1 || boyle2id != -1 || boyle3id != -1 || boyleid != -1 || rosaid != -1 || terryid != -1 || yoghurtid != -1 || ginaid != -1 || holtid != -1 || holt2id != -1 || toitid != -1 ||adrianid != -1 || rosa2id != -1)  {
-    message.channel.send('', {
-        files: [
-            `./${b99}.png`,
-            `./${jake}.png`,
-            `./${jake2}.png`,
-            `/${boyle2}.png`,
-            `/${boyle3}.png`,
-            `/${boyle}.png`,
-            `/${rosa}.png`,
-            `/${terry}.png`,
-            `/${}.png`,
-        ]
-    });
-    
-} */
+        
+    } */
 })
 
 server.login(process.env.BOT_TOKEN);
