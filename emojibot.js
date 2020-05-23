@@ -1,6 +1,7 @@
-import { Client as _Client } from 'discord.js';
-import Client from 'pg';
-const server = new _Client();
+const Discord = require('discord.js');
+const { Client } = require('pg');
+const server = new Discord.Client();
+
 
 const client = new Client({
     connectionString: process.env.DATABASE_URL,
