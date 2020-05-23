@@ -361,11 +361,19 @@ server.on('message', async message => {
             ]
         })
     }
-    if (message.content.startsWith("!config init")) {
+    if (message.content.startsWith("!config enable")) {
         client.query(`INSERT INTO enlarge (user_name, enable) VALUES ('${message.author.id}', true)`,
             (err) => {
                 if (err) throw err;
-                message.reply('Your emoji enlarging has been enabled.')
+                message.reply('your emoji enlarging has been enabled.')
+                client.end();
+            });
+    };
+    if (message.content.startsWith("!config disable")) {
+        client.query(`INSERT INTO enlarge (user_name, enable) VALUES ('${message.author.id}', false)`,
+            (err) => {
+                if (err) throw err;
+                message.reply('your emoji enlarging has been disabled.')
                 client.end();
             });
     };
