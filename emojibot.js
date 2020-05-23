@@ -362,10 +362,7 @@ server.on('message', async message => {
         })
     }
     if (message.content.startsWith("!config init")) {
-        client.query(`IF NOT EXISTS ( SELECT 1 FROM enlarge WHERE user_name = '${message.author.id}' )
-                      BEGIN
-                      INSERT INTO enlarge (user_name, enable) VALUES ('${message.author.id}', 'true')
-                      END;`,
+        client.query(`INSERT INTO enlarge (user_name, enable) VALUES ('${message.author.id}', true)`,
             (err, res) => {
                 if (err) throw err;
                 for (let row of res.rows) {
