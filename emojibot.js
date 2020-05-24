@@ -26,7 +26,7 @@ server.on('message', async message => {
             for (let row of res.rows) {
                 console.log(row)
                 console.log(row.enable)
-                if (row.enable == "true") {
+                if (row.enable == true) {
                     if (message.content.includes(":b99:")) {
                         message.channel.send('', {
                             files: [
