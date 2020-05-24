@@ -21,8 +21,8 @@ server.on('message', async message => {
     client.query(`SELECT enable FROM enlarge WHERE user_name = '${message.author.id}'`, (err, res) => {
         console.log(res)
         for (let row of res.rows) {
-            console.log(row)
-            if (err || row == true) {
+            console.log(JSON.stringify(row))
+            if (err || row[1] == true) {
                 if (message.content.includes(":b99:")) {
                     message.channel.send('', {
                         files: [
