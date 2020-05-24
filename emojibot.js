@@ -22,6 +22,7 @@ server.on('message', async message => {
         console.log(res)
         for (let row of res.rows) {
             console.log(JSON.stringify(row))
+            console.log(row[1])
             if (err || row[1] == true) {
                 if (message.content.includes(":b99:")) {
                     message.channel.send('', {
