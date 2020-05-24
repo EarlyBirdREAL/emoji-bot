@@ -20,7 +20,6 @@ server.on('message', async message => {
     if (message.author.bot) return;
     client.query(`SELECT enable FROM enlarge WHERE user_name = '${message.author.id}'`, (res) => {
         console.log(res)
-        console.log(res.rows["enable"])
         if (res.rowCount == 0) {
             if (message.content.includes(":b99:")) {
                 message.channel.send('', {
