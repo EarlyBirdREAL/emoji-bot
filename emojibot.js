@@ -24,6 +24,7 @@ server.on('message', async message => {
             console.log("dit werkt")
             console.log(res.rows["enable"])
             for (let row of res.rows) {
+                console.log(row)
                 if (row["enable"] == "true") {
                     if (message.content.includes(":b99:")) {
                         message.channel.send('', {
