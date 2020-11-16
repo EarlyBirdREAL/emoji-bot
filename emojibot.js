@@ -764,9 +764,15 @@ server.on('message', async message => {
     if (message.content.includes("@Captain Raymond Jacob Holt is god")) {
         message.channel.send("He really is god.")
     }
-    if (message.content.startsWith('!CAH')) {
 
-        /*const filter = respone => respone.author.id == message.author.id;
+    if (message.author.roles.cache.has('641345947678277632')){
+        if (message.content.startsWith('!spoiler')){
+            message.reply('This worksss');
+        }
+    }
+    /* if (message.content.startsWith('!CAH')) {
+
+        const filter = respone => respone.author.id == message.author.id;
         message.channel.send("How many players?").then(() => {
             message.channel.awaitMessages(filter, { max: 6, time: 30000, errors: ['time'] })
                 .then(collected => {
@@ -775,7 +781,7 @@ server.on('message', async message => {
                 .catch(collected => {
                     message.channel.send('Please restart')
                 })
-        }) */
+        }) 
         const author = message.author.id
         const exampleEmbed = {
             color: 0x0099ff,
@@ -848,7 +854,7 @@ server.on('message', async message => {
 
         // First argument is a filter function
 
-    }
+    }*/
     /*if (b99id != -1 || jakeid != -1 || jake2id != -1 || amyid != -1 || boyle2id != -1 || boyle3id != -1 || boyleid != -1 || rosaid != -1 || terryid != -1 || yoghurtid != -1 || ginaid != -1 || holtid != -1 || holt2id != -1 || toitid != -1 ||adrianid != -1 || rosa2id != -1)  {
         message.channel.send('', {
             files: [
