@@ -765,12 +765,12 @@ server.on('message', async message => {
         message.channel.send("He really is god.")
     }
 
-    /*if (message.author.roles.has('641345947678277632')){
+    if (message.member.roles.cache.has('641345947678277632')){
         if (message.content.startsWith('!spoiler')){
             message.reply('This worksss');
         }
     }
-    */
+    
     /* if (message.content.startsWith('!CAH')) {
 
         const filter = respone => respone.author.id == message.author.id;
