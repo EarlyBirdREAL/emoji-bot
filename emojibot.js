@@ -767,7 +767,7 @@ server.on('message', async message => {
 
     if (message.member.roles.cache.has('641345947678277632') || message.member.roles.cache.has('720723919790800898') || message.member.roles.cache.has('641345591066230796') || message.member.roles.cache.has('641344454388744211') || message.member.roles.cache.has('666351624377335847')){
         if (message.content.startsWith('!spoiler')){
-            const args = message.content.slice(8).trim();
+            const args = message.content.slice(6);
             message.channel.fetch(args)
                 .then(message3 => message.reply(message3))
                 .catch(console.error);
