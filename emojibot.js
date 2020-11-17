@@ -765,9 +765,13 @@ server.on('message', async message => {
         message.channel.send("He really is god.")
     }
 
-    if (message.member.roles.cache.has('641345947678277632')){
+    if (message.member.roles.cache.has('641345947678277632') || message.member.roles.cache.has('720723919790800898') || message.member.roles.cache.has('641345591066230796') || message.member.roles.cache.has('641344454388744211') || message.member.roles.cache.has('666351624377335847')){
         if (message.content.startsWith('!spoiler')){
-            message.reply('This worksss');
+            const args = message.content.slice(8).trim().split(' ');
+            message.channel.fetch(args[0])
+                .then(message3 => message.reply(message3))
+                .catch(console.error);
+            
         }
     }
     
