@@ -1,12 +1,43 @@
 const Discord = require('discord.js');
+var glob = require("glob")
 const { Client } = require('pg');
 const server = new Discord.Client();
 
+var jpg_files = []
+var png_files = []
 
 const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: {
         rejectUnauthorized: false
+    }
+});
+glob("**/*.jpg", function (er, files) {
+    if (er != null) {
+        console.log(er)
+    }
+    else {
+        
+        var length = files.length;
+        for (var i = 0; i < length; i++) {
+            file = files[i].split(".", 1)
+            jpg_files.push(file)
+        }
+        console.log(jpg_files)
+    }
+});
+
+glob("**/*.png", function (er, files) {
+    if (er != null) {
+        console.log(er)
+    }
+    else {
+        var length = files.length;
+        for (var i = 0; i < length; i++) {
+            file = files[i].split(".", 1)
+            png_files.push(file)
+        }
+        console.log(png_files)
     }
 });
 
@@ -18,7 +49,37 @@ server.once('ready', () => {
 
 server.on('message', async message => {
     if (message.author.bot) return;
-    client.query(`SELECT enable FROM enlarge WHERE user_name = '${message.author.id}'`, (err, res) => {
+    console.log(message.content)
+    var png_length = png_files.length;
+    for (var i = 0; i < png_length; i++) {
+        if (message.content.includes(`:${jpng_files[i]}:`)) {
+            message.channel.send('', {
+                files: [
+                    `./${jpng_files[i]}.jpg`
+                ]
+            })
+        }
+    }
+    var jpg_length = jpg_files.length;
+    for (var i = 0; i < jpg_length; i++) {
+        if (message.content.includes(`:${jpg_files[i]}:`)) {
+            message.channel.send('', {
+                files: [
+                    `./${jpg_files[i]}.jpg`
+                ]
+            })
+        }
+    }
+    /*jpg_files.forEach(file => {
+        if (message.content.includes(`:${file}:`)) {
+            message.channel.send('', {
+                files: [
+                    `./${file}.jpg`
+                ]
+            })
+        }
+    })*/
+    /*client.query(`SELECT enable FROM enlarge WHERE user_name = '${message.author.id}'`, (err, res) => {
         console.log(res)
         if (res.rowCount == 1) {
             console.log("dit werkt")
@@ -765,7 +826,7 @@ server.on('message', async message => {
         message.channel.send("He really is god.")
     }
 
-    if (message.member.roles.cache.has('641345947678277632') || message.member.roles.cache.has('720723919790800898') || message.member.roles.cache.has('641345591066230796') || message.member.roles.cache.has('641344454388744211') || message.member.roles.cache.has('666351624377335847')){
+    /*if (message.member.roles.cache.has('641345947678277632') || message.member.roles.cache.has('720723919790800898') || message.member.roles.cache.has('641345591066230796') || message.member.roles.cache.has('641344454388744211') || message.member.roles.cache.has('666351624377335847')){
         if (message.content.startsWith('!spoiler')){
             const args = message.content.split(' ');
             message.channel.fetch(args[1])
@@ -773,7 +834,7 @@ server.on('message', async message => {
                 .catch(console.error);
             
         }
-    }
+    }*/
     
     /* if (message.content.startsWith('!CAH')) {
 
