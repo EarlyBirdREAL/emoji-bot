@@ -89,7 +89,7 @@ server.on('message', async message => {
         if (message.content.includes(`:${gif_files[i]}`)) {
             message.channel.send('', {
                 files: [
-                    `./${gif_files[i]}.jpg`
+                    `./${gif_files[i]}.gif`
                 ]
             })
         }
