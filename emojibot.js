@@ -5,6 +5,7 @@ const server = new Discord.Client();
 
 var jpg_files = []
 var png_files = []
+var gif_files = []
 
 const client = new Client({
     connectionString: process.env.DATABASE_URL,
@@ -40,7 +41,20 @@ glob("**/*.png", function (er, files) {
         console.log(png_files)
     }
 });
-
+glob("**/*.gif", function (er, files) {
+    if (er != null) {
+        console.log(er)
+    }
+    else {
+        
+        var length = files.length;
+        for (var i = 0; i < length; i++) {
+            file = files[i].split(".", 1)
+            gif_files.push(file)
+        }
+        console.log(gif_files)
+    }
+});
 
 server.once('ready', () => {
     console.log('Ready!');
@@ -52,7 +66,7 @@ server.on('message', async message => {
     console.log(message.content)
     var png_length = png_files.length;
     for (var i = 0; i < png_length; i++) {
-        if (message.content.includes(`:${png_files[i]}:`)) {
+        if (message.content.includes(`:${png_files[i]}`)) {
             message.channel.send('', {
                 files: [
                     `./${jpng_files[i]}.jpg`
@@ -62,10 +76,20 @@ server.on('message', async message => {
     }
     var jpg_length = jpg_files.length;
     for (var i = 0; i < jpg_length; i++) {
-        if (message.content.includes(`:${jpg_files[i]}:`)) {
+        if (message.content.includes(`:${jpg_files[i]}`)) {
             message.channel.send('', {
                 files: [
                     `./${jpg_files[i]}.jpg`
+                ]
+            })
+        }
+    }
+    var gif_length = gif_files.length;
+    for (var i = 0; i < gif_length; i++) {
+        if (message.content.includes(`:${gif_files[i]}`)) {
+            message.channel.send('', {
+                files: [
+                    `./${gif_files[i]}.jpg`
                 ]
             })
         }
