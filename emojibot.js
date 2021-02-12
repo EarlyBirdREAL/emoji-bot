@@ -69,7 +69,7 @@ server.on('message', async message => {
         if (message.content.includes(`:${png_files[i]}`)) {
             message.channel.send('', {
                 files: [
-                    `./${jpng_files[i]}.jpg`
+                    `./${jpg_files[i]}.jpg`
                 ]
             })
         }
