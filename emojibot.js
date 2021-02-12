@@ -52,7 +52,7 @@ server.on('message', async message => {
     console.log(message.content)
     var png_length = png_files.length;
     for (var i = 0; i < png_length; i++) {
-        if (message.content.includes(`:${jpng_files[i]}:`)) {
+        if (message.content.includes(`:${png_files[i]}:`)) {
             message.channel.send('', {
                 files: [
                     `./${jpng_files[i]}.jpg`
