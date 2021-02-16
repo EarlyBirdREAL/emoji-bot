@@ -64,6 +64,26 @@ server.once('ready', () => {
 server.on('message', async message => {
     if (message.author.bot) return;
     console.log(message.content)
+    if (message.content.startsWith("!config init")) {
+        client.query(`INSERT INTO enlarge (user_name, enable) VALUES ('${message.author.id}', true)`, (err) => {
+            message.reply('you have initialized you config, your emoji enlarging has been enabled.')
+
+        });
+    };
+    if (message.content.startsWith("!config enable")) {
+        client.query(`UPDATE enlarge SET enable = true WHERE user_name = '${message.author.id}'`,
+            (err) => {
+                message.reply('your emoji enlarging has been enabled.')
+
+            });
+    };
+    if (message.content.startsWith("!config disable")) {
+        client.query(`UPDATE enlarge SET enable = false WHERE user_name = '${message.author.id}'`,
+            (err) => {
+                console.log(err)
+                message.reply('your emoji enlarging has been disabled.')
+            });
+    };
     client.query(`SELECT enable FROM enlarge WHERE user_name = '${message.author.id}'`, (err, res) => {
         if (res.rowCount == 1) {
             console.log(res.rows.enable);
@@ -831,26 +851,7 @@ server.on('message', async message => {
         var rosa2id = server.emojis.find(emoji => emoji.name === "rosamad").id
         var rosa2 = server.emojis.find(emoji => emoji.name === "rosamad").name */
 
-    if (message.content.startsWith("!config init")) {
-        client.query(`INSERT INTO enlarge (user_name, enable) VALUES ('${message.author.id}', true)`, (err) => {
-            message.reply('you have initialized you config, your emoji enlarging has been enabled.')
-
-        });
-    };
-    if (message.content.startsWith("!config enable")) {
-        client.query(`UPDATE enlarge SET enable = true WHERE user_name = '${message.author.id}'`,
-            (err) => {
-                message.reply('your emoji enlarging has been enabled.')
-
-            });
-    };
-    if (message.content.startsWith("!config disable")) {
-        client.query(`UPDATE enlarge SET enable = false WHERE user_name = '${message.author.id}'`,
-            (err) => {
-                console.log(err)
-                message.reply('your emoji enlarging has been disabled.')
-            });
-    };
+    
     /*try {
         // equivalent to: INSERT INTO tags (name, description, username) values (?, ?, ?);
         const tag = await config.create({
