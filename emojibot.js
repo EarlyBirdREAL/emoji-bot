@@ -93,8 +93,9 @@ server.on('message', async message => {
     };
     client.query(`SELECT enable FROM enlarge WHERE user_name = '${message.author.id}'`, (err, res) => {
         if (res.rowCount == 1) {
-            console.log(res.rows.enable);
-            if (res.rows.enable == true) {
+            for (let row of res.rows) {
+            console.log(row.enable);
+            if (row.enable == true) {
             var png_length = png_files.length;
             for (var i = 0; i < png_length; i++) {
                 if (message.content.includes(`:${png_files[i]}`)) {
@@ -133,10 +134,11 @@ server.on('message', async message => {
                 })
             }
         }
-        else if (res.rows.enable == false) {
+        else if (row.enable == false) {
 
         }
         }
+    }
         else if (res.rowCount == 0) {
             var png_length = png_files.length;
             for (var i = 0; i < png_length; i++) {
