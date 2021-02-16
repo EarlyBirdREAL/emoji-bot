@@ -66,6 +66,7 @@ server.on('message', async message => {
     console.log(message.content)
     client.query(`SELECT enable FROM enlarge WHERE user_name = '${message.author.id}'`, (err, res) => {
         if (res.rowCount == 1) {
+            console.log(res.rows.enable);
             if (res.rows.enable == true) {
             var png_length = png_files.length;
             for (var i = 0; i < png_length; i++) {
