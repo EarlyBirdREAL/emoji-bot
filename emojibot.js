@@ -64,36 +64,91 @@ server.once('ready', () => {
 server.on('message', async message => {
     if (message.author.bot) return;
     console.log(message.content)
-    var png_length = png_files.length;
-    for (var i = 0; i < png_length; i++) {
-        if (message.content.includes(`:${png_files[i]}`)) {
-            message.channel.send('', {
-                files: [
-                    `./${png_files[i]}.png`
-                ]
-            })
+    client.query(`SELECT enable FROM enlarge WHERE user_name = '${message.author.id}'`, (err, res) => {
+        if (res.rowCount == 1) {
+            if (res.rows.enable == true) {
+            var png_length = png_files.length;
+            for (var i = 0; i < png_length; i++) {
+                if (message.content.includes(`:${png_files[i]}`)) {
+                    message.channel.send('', {
+                        files: [
+                            `./${png_files[i]}.png`
+                     ]
+                    })
+                }
+           }
+            var jpg_length = jpg_files.length;
+            for (var i = 0; i < jpg_length; i++) {
+                if (message.content.includes(`:${jpg_files[i]}`)) {
+                    message.channel.send('', {
+                        files: [
+                            `./${jpg_files[i]}.jpg`
+                       ]
+                   })
+                }
+            }
+            var gif_length = gif_files.length;
+            for (var i = 0; i < gif_length; i++) {
+               if (message.content.includes(`:${gif_files[i]}`)) {
+                   message.channel.send('', {
+                       files: [
+                           `./${gif_files[i]}.gif`
+                       ]
+                    })
+                }
+            }
+            if (message.content.includes("twas")) {
+                message.channel.send("", {
+                    files: [
+                        `./twas.jpg`
+                    ]
+                })
+            }
         }
-    }
-    var jpg_length = jpg_files.length;
-    for (var i = 0; i < jpg_length; i++) {
-        if (message.content.includes(`:${jpg_files[i]}`)) {
-            message.channel.send('', {
-                files: [
-                    `./${jpg_files[i]}.jpg`
-                ]
-            })
+        else if (res.rows.enable == false) {
+
         }
-    }
-    var gif_length = gif_files.length;
-    for (var i = 0; i < gif_length; i++) {
-        if (message.content.includes(`:${gif_files[i]}`)) {
-            message.channel.send('', {
-                files: [
-                    `./${gif_files[i]}.gif`
-                ]
-            })
         }
-    }
+        else if (res.rowCount == 0) {
+            var png_length = png_files.length;
+            for (var i = 0; i < png_length; i++) {
+                if (message.content.includes(`:${png_files[i]}`)) {
+                    message.channel.send('', {
+                        files: [
+                            `./${png_files[i]}.png`
+                     ]
+                    })
+                }
+           }
+            var jpg_length = jpg_files.length;
+            for (var i = 0; i < jpg_length; i++) {
+                if (message.content.includes(`:${jpg_files[i]}`)) {
+                    message.channel.send('', {
+                        files: [
+                            `./${jpg_files[i]}.jpg`
+                       ]
+                   })
+                }
+            }
+            var gif_length = gif_files.length;
+            for (var i = 0; i < gif_length; i++) {
+               if (message.content.includes(`:${gif_files[i]}`)) {
+                   message.channel.send('', {
+                       files: [
+                           `./${gif_files[i]}.gif`
+                       ]
+                    })
+                }
+            }
+            if (message.content.includes("twas")) {
+                message.channel.send("", {
+                    files: [
+                        `./twas.jpg`
+                    ]
+                })
+            }
+        }
+});
     /*jpg_files.forEach(file => {
         if (message.content.includes(`:${file}:`)) {
             message.channel.send('', {
