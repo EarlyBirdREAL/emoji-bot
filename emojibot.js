@@ -66,8 +66,12 @@ server.on('message', async message => {
     console.log(message.content)
     if (message.content.startsWith("!config init")) {
         client.query(`INSERT INTO enlarge (user_name, enable) VALUES ('${message.author.id}', true)`, (err) => {
-            message.reply('you have initialized you config, your emoji enlarging has been enabled.')
-           
+            if (err == null){ 
+                message.reply('you have initialized you config, your emoji enlarging has been enabled.')
+            }
+            else {
+                console.log(err)
+            }
         });
         return
     };
